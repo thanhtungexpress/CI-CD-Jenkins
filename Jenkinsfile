@@ -4,8 +4,6 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-         // Copy SSL certificates to the build context
-        sh 'cp /usr/lib/ssl/cert.pem .'
         sh 'docker build -t my-flask-app .'
         sh 'docker tag my-flask-app $DOCKER_BFLASK_IMAGE'
       }
